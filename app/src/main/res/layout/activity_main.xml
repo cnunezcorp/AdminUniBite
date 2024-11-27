@@ -16,7 +16,7 @@
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
+
     <TextView
         android:id="@+id/name_app"
         android:layout_width="wrap_content"
@@ -28,158 +28,434 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/logo_image_view"
         app:layout_constraintTop_toTopOf="@id/logo_image_view" />
-    
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="108dp"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_app">
-    
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="8dp"/>
+            android:layout_height="match_parent"
+            android:background="#F4F4F4">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="8dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="8dp" />
+
+            <!-- ORDENES PENDIENTES-->
+            <ImageView
+                android:id="@+id/pending_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/attantion"
+                app:layout_constraintEnd_toEndOf="@id/pending_text_view"
+                app:layout_constraintStart_toStartOf="@id/guideline3"
+                app:layout_constraintTop_toTopOf="@id/guideline2" />
+
+            <TextView
+                android:id="@+id/pending_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Pendientes"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/guideline3"
+                app:layout_constraintTop_toBottomOf="@id/pending_image_view" />
+
+            <TextView
+                android:id="@+id/pending_number_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="20"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@id/pending_text_view"
+                app:layout_constraintStart_toStartOf="@id/guideline3"
+                app:layout_constraintTop_toBottomOf="@id/pending_text_view" />
+
+            <!-- ORDENES COMPLETADAS-->
+
+            <ImageView
+                android:id="@+id/completed_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right"
+                app:layout_constraintEnd_toEndOf="@+id/completed_text_view"
+                app:layout_constraintStart_toStartOf="@+id/completed_text_view"
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+            <TextView
+                android:id="@+id/completed_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Completadas"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/pending_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/completed_image_view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="20"
+                android:textColor="#FFC107"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/completed_text_view"
+                app:layout_constraintStart_toStartOf="@+id/completed_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/completed_text_view" />
+
+            <!--GANANCIAS-->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dollar"
+                app:layout_constraintEnd_toEndOf="@+id/earning_text_view"
+                app:layout_constraintStart_toStartOf="@+id/earning_text_view"
+                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+            <TextView
+                android:id="@+id/earning_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Ganancias"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                app:flow_horizontalBias="0.578"
+                app:layout_constraintEnd_toStartOf="@id/guideline4"
+                app:layout_constraintStart_toEndOf="@+id/completed_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/earning_amount_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="RD$1,000"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@id/earning_text_view"
+                app:layout_constraintStart_toStartOf="@+id/earning_text_view"
+                app:layout_constraintTop_toBottomOf="@id/earning_text_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- OPCIONES -->
+
+    <!-- AÑADIR AL MENU -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/add_menu_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/view_all_menu_card_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="8dp"/>
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
+            <ImageView
+                android:id="@+id/add_menu_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/pluse_round"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/add_menu_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Añadir al Menú"
+                android:textColor="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/add_menu_image_view"
+                app:layout_constraintStart_toStartOf="@id/add_menu_image_view"
+                app:layout_constraintTop_toBottomOf="@id/add_menu_image_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--VER MENU-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view_all_menu_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_menu_card_view"
+        app:layout_constraintTop_toTopOf="@+id/add_menu_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="8dp" />
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
 
-        <!-- ORDENES PENDIENTES-->
-        <ImageView
-            android:id="@+id/pending_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/attantion"
-            app:layout_constraintEnd_toEndOf="@id/pending_text_view"
-            app:layout_constraintStart_toStartOf="@id/guideline3"
-            app:layout_constraintTop_toTopOf="@id/guideline2"/>
+            <ImageView
+                android:id="@+id/view_all_menu_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/eye"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/pending_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/yeonsung_regular"
-            android:text="Pendientes"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textColor"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@id/guideline3"
-            app:layout_constraintTop_toBottomOf="@id/pending_image_view" />
-        
-        <TextView
-            android:id="@+id/pending_number_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="20"
-            android:fontFamily="@font/lato_bold"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@id/pending_text_view"
-            app:layout_constraintStart_toStartOf="@id/guideline3"
-            app:layout_constraintTop_toBottomOf="@id/pending_text_view" />
+            <TextView
+                android:id="@+id/view_all_menu_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Ver Menú Completo"
+                android:textColor="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/view_all_menu_image_view"
+                app:layout_constraintStart_toStartOf="@id/view_all_menu_image_view"
+                app:layout_constraintTop_toBottomOf="@id/view_all_menu_image_view" />
 
-        <!-- ORDENES COMPLETADAS-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/completed_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/right"
-            app:layout_constraintEnd_toEndOf="@+id/completed_text_view"
-            app:layout_constraintStart_toStartOf="@+id/completed_text_view"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+    </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/completed_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="40dp"
-            android:fontFamily="@font/yeonsung_regular"
-            android:text="Completadas"
-            android:textAlignment="center"
-            android:textColor="@color/textColor"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/pending_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/completed_image_view"/>
+    <!-- PERFIL -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/perfil_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="@+id/add_menu_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/add_menu_card_view">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/lato_bold"
-            android:text="20"
-            android:textSize="20sp"
-            android:textColor="#FFC107"
-            app:layout_constraintEnd_toEndOf="@+id/completed_text_view"
-            app:layout_constraintStart_toStartOf="@+id/completed_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/completed_text_view" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
 
-        <!--GANANCIAS-->
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/dollar"
-            app:layout_constraintEnd_toEndOf="@+id/earning_text_view"
-            app:layout_constraintStart_toStartOf="@+id/earning_text_view"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            <ImageView
+                android:id="@+id/perfil_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/earning_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="40sp"
-            android:fontFamily="@font/yeonsung_regular"
-            android:text="Ganancias"
-            android:textSize="20sp"
-            android:textColor="@color/textColor"
-            app:flow_horizontalBias="0.578"
-            app:layout_constraintEnd_toStartOf="@id/guideline4"
-            app:layout_constraintStart_toEndOf="@+id/completed_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/perfil_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Perfil"
+                android:textColor="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/perfil_image_view"
+                app:layout_constraintStart_toStartOf="@id/perfil_image_view"
+                app:layout_constraintTop_toBottomOf="@id/perfil_image_view" />
 
-        <TextView
-            android:id="@+id/earning_amount_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/yeonsung_regular"
-            android:text="RD$1,000"
-            android:textColor="#4CAF50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@id/earning_text_view"
-            app:layout_constraintStart_toStartOf="@+id/earning_text_view"
-            app:layout_constraintTop_toBottomOf="@id/earning_text_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.cardview.widget.CardView>
 
+    <!-- CREAR USUARIO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/create_user_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/view_all_menu_card_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/perfil_card_view"
+        app:layout_constraintTop_toTopOf="@+id/perfil_card_view">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
+
+            <ImageView
+                android:id="@+id/create_user_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/user_plus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/create_user_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Crear Nuevo Usuario"
+                android:textColor="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/create_user_image_view"
+                app:layout_constraintStart_toStartOf="@id/create_user_image_view"
+                app:layout_constraintTop_toBottomOf="@id/create_user_image_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- DESPACHOS O ENTREGAS -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/order_dispatch_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="@+id/perfil_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/perfil_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
+
+            <ImageView
+                android:id="@+id/order_dispatch_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/shopping_bag"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/order_dispatch_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Despacho de Pedidos"
+                android:textColor="#FFC107"
+                app:layout_constraintEnd_toEndOf="@id/order_dispatch_image_view"
+                app:layout_constraintStart_toStartOf="@id/order_dispatch_image_view"
+                app:layout_constraintTop_toBottomOf="@id/order_dispatch_image_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
 
+    <!-- CERRAR SESION -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/logout_card_view"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:outlineSpotShadowColor="@color/textColor"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/create_user_card_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/order_dispatch_card_view"
+        app:layout_constraintTop_toTopOf="@+id/order_dispatch_card_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/greencard">
+
+            <ImageView
+                android:id="@+id/logout_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/log_out"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/logout_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/yeonsung_regular"
+                android:text="Cerrar Sesión"
+                android:textColor="#FF0707"
+                app:layout_constraintEnd_toEndOf="@id/logout_image_view"
+                app:layout_constraintStart_toStartOf="@id/logout_image_view"
+                app:layout_constraintTop_toBottomOf="@id/logout_image_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Diseñado Por\nCristofer Nuñez"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,23 +8,6 @@
     android:background="@color/white"
     tools:context=".ui.activity.LoginActivity">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/yeonsung_regular"
-        android:text="Diseñado Por\nCristofer Nuñez"
-        android:textAlignment="center"
-        android:textColor="@color/textColor"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dont_have_account_button"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="100dp"
@@ -178,5 +161,22 @@
         app:layout_constraintEnd_toEndOf="@+id/login_button"
         app:layout_constraintStart_toStartOf="@+id/login_button"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Diseñado Por\nCristofer Nuñez"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dont_have_account_button"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
