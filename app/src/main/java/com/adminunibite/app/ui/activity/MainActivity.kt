@@ -33,5 +33,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AllItemActivity::class.java)
             startActivity(intent)
         }
+        binding.orderDispatchCardView.setOnClickListener{
+            val intent = Intent(this, PickupActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
