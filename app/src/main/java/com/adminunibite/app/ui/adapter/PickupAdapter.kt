@@ -29,7 +29,7 @@ class PickupAdapter(private val CustomerNames:ArrayList<String>, private val Mon
                 customerName.text = CustomerNames[position]
                 orderMoneyStatus.text = MoneyStatus[position]
                 val colorMap = mapOf(
-                    "Recibido" to Color.GREEN, "No Recibido" to Color.RED, "Pendiente" to Color.GRAY
+                    "Recibido" to ContextCompat.getColor(binding.root.context, R.color.textColor), "No Recibido" to Color.RED, "Pendiente" to Color.GRAY
                 )
                 orderMoneyStatus.setTextColor(colorMap[MoneyStatus[position]]?:Color.BLACK)
                 orderStatusColor.backgroundTintList = ColorStateList.valueOf(colorMap[MoneyStatus[position]]?:Color.BLACK)
