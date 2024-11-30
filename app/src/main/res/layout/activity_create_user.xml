@@ -6,8 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.activity.SignUpActivity">
+    tools:context=".ui.activity.CreateUserActivity">
 
+    <ImageView
+        android:id="@+id/back_image_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/arrow_left"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -35,100 +46,39 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:fontFamily="@font/lato_bold"
-        android:text="Regístrate Aquí Para Tu\nPanel de Administración"
+        android:text="Crea un Nuevo Usuario\nAdministrador"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/yeonsung_regular"
-        android:text="Seleccione su Universidad"
-        android:textColor="@color/textColor"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_editor_absoluteX="20dp"
-        app:layout_editor_absoluteY="234dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-        app:endIconDrawable="@drawable/arrow_down"
-        app:endIconTint="@color/black"
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/edittextshape"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
-        
-        <AutoCompleteTextView
-            android:id="@+id/list_of_university"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Seleccione su Universidad"
-            android:textColor="@color/black"
-            android:inputType="none"
-            android:fontFamily="@font/lato_regular"/>
-        
-    </com.google.android.material.textfield.TextInputLayout>
-
     <EditText
         android:id="@+id/name"
-        android:layout_width="0dp"
+        android:layout_width="325dp"
         android:layout_height="57dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/usernew"
         android:drawablePadding="@dimen/drawablePadding"
         android:elevation="5dp"
         android:ems="10"
         android:fontFamily="@font/lato_regular"
-        android:hint="Nombre del Encargado"
-        android:textColorHint="@color/hintColor"
+        android:hint="Nombre Completo"
+        android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="text"
         android:outlineSpotShadowColor="@color/textColor"
-        android:paddingLeft="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-    <EditText
-        android:id="@+id/restaurant_name"
-        android:layout_width="0dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/home"
-        android:drawablePadding="@dimen/drawablePadding"
-        android:elevation="5dp"
-        android:ems="10"
-        android:fontFamily="@font/lato_regular"
-        android:hint="Nombre del Restaurante"
-        android:textColorHint="@color/hintColor2"
-        android:textColor="@color/black"
-        android:inputType="text"
-        android:outlineSpotShadowColor="@color/textColor"
-        android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        android:paddingLeft="9dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
         android:id="@+id/email_or_phone"
-        android:layout_width="0dp"
+        android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/edittextshape"
@@ -137,18 +87,19 @@
         android:elevation="5dp"
         android:ems="10"
         android:fontFamily="@font/lato_regular"
-        android:hint="Correo Eletronico o Telefono"
-        android:textColorHint="@color/hintColor3"
+        android:hint="Correo Electrónico o Teléfono"
+        android:textColorHint="@color/black"
         android:textColor="@color/black"
-        android:paddingLeft="15dp"
+        android:inputType="textEmailAddress"
         android:outlineSpotShadowColor="@color/textColor"
-        app:layout_constraintEnd_toEndOf="@id/restaurant_name"
-        app:layout_constraintStart_toStartOf="@id/restaurant_name"
-        app:layout_constraintTop_toBottomOf="@id/restaurant_name" />
+        android:paddingLeft="9dp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="0dp"
+        android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/edittextshape"
@@ -158,8 +109,9 @@
         android:ems="10"
         android:fontFamily="@font/lato_regular"
         android:hint="Contraseña"
-        android:textColorHint="@color/hintColor4"
+        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:inputType="textPassword"
         android:outlineSpotShadowColor="@color/textColor"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/email_or_phone"
@@ -167,32 +119,19 @@
         app:layout_constraintTop_toBottomOf="@+id/email_or_phone" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/register_button"
-        android:layout_width="157dp"
-        android:layout_marginTop="12dp"
-        android:layout_height="@dimen/socialButtonHeight"
+        android:id="@+id/create_user_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/greenbuttongradient"
-        android:fontFamily="@font/lato_bold"
-        android:text="Crear Cuenta"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Crear Nuevo Usuario"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <TextView
-        android:id="@+id/already_have_account_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="Ya Tengo Cuenta"
-        android:textColor="@color/textColor"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/register_button"
-        app:layout_constraintStart_toStartOf="@+id/register_button"
-        app:layout_constraintTop_toBottomOf="@+id/register_button" />
 
     <TextView
         android:id="@+id/textView13"
@@ -208,5 +147,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

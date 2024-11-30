@@ -1,10 +1,11 @@
-package com.adminunibite.app
+package com.adminunibite.app.ui.activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.adminunibite.app.R
 import com.adminunibite.app.databinding.ActivityAdminProfileBinding
 
 class AdminProfileActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class AdminProfileActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        
+
         binding.name.isEnabled = false
         binding.email.isEnabled = false
         binding.phone.isEnabled = false
