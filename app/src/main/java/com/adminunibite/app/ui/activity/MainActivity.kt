@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.adminunibite.app.AdminProfileActivity
 import com.adminunibite.app.R
 import com.adminunibite.app.databinding.ActivityMainBinding
 
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         }
         binding.orderDispatchCardView.setOnClickListener{
             val intent = Intent(this, PickupActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.profileCardView.setOnClickListener{
+            val intent = Intent(this, AdminProfileActivity::class.java)
             startActivity(intent)
         }
     }

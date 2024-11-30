@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.activity.MainActivity">
 
     <ImageView
@@ -273,7 +274,7 @@
 
     <!-- PERFIL -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/perfil_card_view"
+        android:id="@+id/profile_card_view"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="60dp"
@@ -288,7 +289,7 @@
             android:background="@drawable/greencard">
 
             <ImageView
-                android:id="@+id/perfil_image_view"
+                android:id="@+id/profile_image_view"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="10dp"
@@ -298,16 +299,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/perfil_text_view"
+                android:id="@+id/profile_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/yeonsung_regular"
                 android:text="Perfil"
                 android:textColor="@color/textColor"
-                app:layout_constraintEnd_toEndOf="@id/perfil_image_view"
-                app:layout_constraintStart_toStartOf="@id/perfil_image_view"
-                app:layout_constraintTop_toBottomOf="@id/perfil_image_view" />
+                app:layout_constraintEnd_toEndOf="@id/profile_image_view"
+                app:layout_constraintStart_toStartOf="@id/profile_image_view"
+                app:layout_constraintTop_toBottomOf="@id/profile_image_view" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -322,8 +323,8 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="@+id/view_all_menu_card_view"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/perfil_card_view"
-        app:layout_constraintTop_toTopOf="@+id/perfil_card_view">
+        app:layout_constraintStart_toEndOf="@+id/profile_card_view"
+        app:layout_constraintTop_toTopOf="@+id/profile_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -364,8 +365,8 @@
         android:layout_marginTop="60dp"
         android:outlineSpotShadowColor="@color/textColor"
         app:cardCornerRadius="15dp"
-        app:layout_constraintStart_toStartOf="@+id/perfil_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/perfil_card_view">
+        app:layout_constraintStart_toStartOf="@+id/profile_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/profile_card_view">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
