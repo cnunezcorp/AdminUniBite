@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        binding.pendingTextView.setOnClickListener{
+            val intent = Intent(this, PendingOrderActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.addMenuCardView.setOnClickListener{
             val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
