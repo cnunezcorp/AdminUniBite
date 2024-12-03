@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
