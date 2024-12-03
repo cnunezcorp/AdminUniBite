@@ -9,10 +9,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.adminunibite.app.R
+import com.adminunibite.app.data.AuthRepositoryImpl
 import com.adminunibite.app.databinding.ActivityLoginBinding
+import com.adminunibite.app.domain.usecase.LoginUseCase
 import com.adminunibite.app.model.UserModel
 import com.adminunibite.app.viewmodel.LoginViewModel
+import com.adminunibite.app.viewmodel.LoginViewModelFactory
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -21,14 +25,22 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+
 
 class LoginActivity : AppCompatActivity() {
 
     private val auth : FirebaseAuth = Firebase.auth
-    private val loginViewModel: LoginViewModel by viewModels()
-    //private lateinit var googleSignInClient: GoogleSignInClient
+    private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+    private val loginViewModel: LoginViewModel by lazy {
+        val authRepository = AuthRepositoryImpl(Firebase.auth, databaseReference) // Asegúrate de inicializar `databaseReference`
+        val loginUseCase = LoginUseCase(authRepository)
+        val factory = LoginViewModelFactory(loginUseCase)
+        ViewModelProvider(this, factory)[LoginViewModel::class.java]
+    }
+    //private lateinit var googleS ignInClient: GoogleSignInClient
 
 
     private val binding: ActivityLoginBinding by lazy {

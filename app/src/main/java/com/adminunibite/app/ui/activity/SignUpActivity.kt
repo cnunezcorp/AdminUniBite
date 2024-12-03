@@ -2,8 +2,6 @@ package com.adminunibite.app.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -11,18 +9,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.adminunibite.app.R
+import com.adminunibite.app.data.AuthRepositoryImpl
 import com.adminunibite.app.databinding.ActivitySignUpBinding
+import com.adminunibite.app.domain.usecase.SignUpUseCase
 import com.adminunibite.app.model.UserModel
 import com.adminunibite.app.viewmodel.SignUpViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.adminunibite.app.viewmodel.SignUpViewModelFactory
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
 
-    private val viewModel: SignUpViewModel by viewModels()
+    private val viewModel: SignUpViewModel by viewModels {
+        SignUpViewModelFactory(SignUpUseCase(AuthRepositoryImpl(Firebase.auth, FirebaseDatabase.getInstance().reference)))
+    }
 
     private val binding: ActivitySignUpBinding by lazy {
         ActivitySignUpBinding.inflate(layoutInflater)
