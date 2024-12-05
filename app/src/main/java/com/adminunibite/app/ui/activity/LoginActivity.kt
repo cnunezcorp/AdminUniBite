@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
 
     private val loginViewModel: LoginViewModel by lazy {
-        val authRepository = AuthRepositoryImpl(Firebase.auth, databaseReference) // Asegúrate de inicializar `databaseReference`
+        val authRepository = AuthRepositoryImpl(Firebase.auth, databaseReference)
         val loginUseCase = LoginUseCase(authRepository)
         val factory = LoginViewModelFactory(loginUseCase)
         ViewModelProvider(this, factory)[LoginViewModel::class.java]
@@ -63,16 +63,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        /*val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()*/
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        //Inicializando Google Sign In
-        //googleSignInClient =GoogleSignIn.getClient(this, googleSignInOptions)
 
         setupUI()
 

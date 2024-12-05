@@ -1,64 +1,52 @@
 package com.adminunibite.app.ui.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.adminunibite.app.databinding.PendingOrderItemBinding
+import com.adminunibite.app.model.OrderDetails
+import com.bumptech.glide.Glide
 
 class PendingOrderAdapter(
-    private val CustomerName:ArrayList<String>,
-    private val Quantity:ArrayList<String>,
-    private val FoodImage:ArrayList<Int>,
-    private val context: Context)
-    : RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
+    private val context: Context,
+    private val orderItems: MutableList<OrderDetails>,
+    private val itemClicked: OnItemClicked,
+) : RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
+
+    interface OnItemClicked {
+        fun onItemClickListener(position: Int, orderDetails: OrderDetails)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
         val binding = PendingOrderItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PendingOrderViewHolder(binding)
     }
 
-
     override fun onBindViewHolder(holder: PendingOrderViewHolder, position: Int) {
-        holder.bind(position)
+        holder.bind(orderItems[position], position)
     }
 
-    override fun getItemCount(): Int = CustomerName.size
+    override fun getItemCount(): Int = orderItems.size
 
     inner class PendingOrderViewHolder(private val binding: PendingOrderItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        private var isAccepted = false
-        fun bind(position: Int) {
+        fun bind(orderDetails: OrderDetails, position: Int) {
             binding.apply {
-                customerName.text = CustomerName[position]
-                pendingOrderQuantity.text = Quantity[position]
-                orderFoodImageView.setImageResource(FoodImage[position])
+                // Configura los datos visuales como el nombre, precio, imagen, etc.
+                customerName.text = orderDetails.userName ?: "Cliente"
+                pendingOrderQuantity.text = "${orderDetails.totalPrice ?: "0"}"
+                val uri = Uri.parse(orderDetails.foodImages?.firstOrNull())
+                Glide.with(context).load(uri).into(orderFoodImageView)
 
-                orderAcceptButton.apply {
-                    if (!isAccepted){
-                        text = "Aceptar"
-                    }
-                    else{
-                        text = "Despachar"
-                    }
-                    setOnClickListener{
-                        if (!isAccepted){
-                            text = "Despachar"
-                            isAccepted = true
-                            showToast("Orden Aceptada")
-                        }
-                        else{
-                            CustomerName.removeAt(adapterPosition)
-                            notifyItemRemoved(adapterPosition)
-                            showToast("Orden Despachada")
-                        }
-                    }
+                // Configura el clic
+                itemView.setOnClickListener {
+                    itemClicked.onItemClickListener(position, orderDetails)
                 }
             }
-        }
-       private fun showToast(message: String){
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }
